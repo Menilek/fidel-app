@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { mapCharToLetters } from './utils';
 
+  const numberKeys = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
   const firstRow = ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'];
   const secondRow = ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'];
   const thirdRow = ['Z', 'X', 'C', 'V', 'B', 'N', 'M'];
@@ -52,7 +53,7 @@ import { mapCharToLetters } from './utils';
 </script>
 
 <template>
-  <h1>fidel-app</h1>
+  <h1 class="heading">fidel-app</h1>
   <br />
   <div>
     <div class="input-area">
@@ -62,8 +63,11 @@ import { mapCharToLetters } from './utils';
       <button v-for="char of getLetters()" :key="char" @click="append(char)">{{ char }}</button>
     </div>
     <div v-show="!showTranslateOptions" class="pad-options-area"></div>
-    <div class="backspace-key">
+    <div class="delete-keys">
       <button @click="clear">Clear</button>
+    </div>
+    <div class="delete-keys">
+      <button v-for="number of numberKeys" :key="number">{{ number }}</button>
       <button @click="backspace">Backspace</button>
     </div>
     <div class="centre-align">
@@ -86,13 +90,16 @@ import { mapCharToLetters } from './utils';
 </template>
 
 <style scoped>
+  .heading {
+    margin-top: 5%;
+  }
 .thin-text {
   font-weight: 200;
 }
 .centre-align {
   text-align: center;
 }
-.backspace-key {
+.delete-keys {
   text-align: right;
 }
 .space-bar {
