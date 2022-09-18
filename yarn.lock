@@ -440,6 +440,11 @@ vue@^3.2.37:
     "@vue/server-renderer" "3.2.39"
     "@vue/shared" "3.2.39"
 
+wave-ui@^2.42.2:
+  version "2.42.2"
+  resolved "https://registry.yarnpkg.com/wave-ui/-/wave-ui-2.42.2.tgz#d34ecbeb0625f82ecfd2ff352a2926a87a176f8f"
+  integrity sha512-oWK3c/qTM4YcK4JCsmCx/2HZEEzTf80vj0R2P4UeDLrrpO30aG1vvW2UqL89u63eTjXWUItQeYlVYS5fUg6vPA==
+
 yallist@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/yallist/-/yallist-4.0.0.tgz#9bb92790d9c0effec63be73519e11a35019a3a72"
