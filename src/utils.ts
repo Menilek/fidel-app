@@ -33,9 +33,48 @@ export const kk = ["ኸ",	"ኹ",	"ኺ",	"ኻ",	"ኼ",	"ኽ",	"ኾ"];
 export const zz = ["ዠ",	"ዡ",	"ዢ",	"ዣ",	"ዤ",	"ዥ",	"ዦ"];
 export const cch = ["ጨ",	"ጩ",	"ጪ",	"ጫ",	"ጬ",	"ጭ",	"ጮ"];
 export const ss = ["ፀ",	"ፁ",	"ፂ",	"ፃ",	"ፄ",	"ፅ",	"ፆ"];
-export const one = ["፩"];
-export const two = ["፪"];
-// ፩	፪	፫	፬	፭	፮	፯	፰	፱
+
+export const one = "፩";
+export const two = "፪";
+export const three = "፫";
+export const four = "፬";
+export const five = "፭";
+export const six = "፮";
+export const seven = "፯";
+export const eight = "፰";
+export const nine = "፱";
+
+export const mapNumber = (num: number) => {
+  switch(num) {
+    case 1:
+      return one;
+      break;
+    case 2:
+      return two;
+      break;
+    case 3:
+      return three;
+      break;
+    case 4:
+      return four;
+      break;
+    case 5:
+      return five;
+      break;
+    case 6:
+      return six;
+      break;
+    case 7:
+      return seven;
+      break;
+    case 8:
+      return eight;
+      break;
+    case 9:
+      return nine;
+      break;
+  }
+}
 
 export const mapCharToLetters = (char: string) => {
     switch(char) {
