@@ -47,50 +47,54 @@ import { mapCharToLetters } from './utils';
     input.value = "";
   }
 
-  // CAPTURE KEYBOARD INPUT
-  // E.G ON PRESSING Q RENDER OPTIONS AND ACCEPT NUMERIC INPUT FOR OPTION OF CHOICE
-
 </script>
 
 <template>
-  <h1 class="heading">fidel-app</h1>
-  <br />
-  <div>
-    <div class="input-area">
-      <h1 class="thin-text">{{ input }}</h1>
-    </div>
-    <div v-show="showTranslateOptions">
-      <button v-for="char of getLetters()" :key="char" @click="append(char)">{{ char }}</button>
-    </div>
-    <div v-show="!showTranslateOptions" class="pad-options-area"></div>
-    <div class="delete-keys">
-      <button @click="clear">Clear</button>
-    </div>
-    <div class="delete-keys">
-      <button v-for="number of numberKeys" :key="number">{{ number }}</button>
-      <button @click="backspace">Backspace</button>
-    </div>
-    <div class="centre-align">
-      <button v-for="letter of firstRow" :key="letter" @click="setSelected(letter)">{{ letter }}</button>
-      <button @click="newLine">⏎</button>
-    </div>
-    <div class="second-row">
-      <button v-for="letter of secondRow" :key="letter" @click="setSelected(letter)">{{ letter }}</button>
-    </div>
-    <div class="third-row">
-      <button v-for="letter of thirdRow" :key="letter" @click="setSelected(letter)">{{ letter }}</button>
-    </div>
-    <div class="fourth-row">
-      <button v-for="letter of fourthRow" :key="letter" @click="setSelected(letter)">{{ letter }}</button>
-    </div>
-    <div class="centre-align">
-      <button @click="addSpace" class="space-bar"></button>
-    </div>
-  </div>
+  <w-app block>
+    <main>
+      <h1 class="heading">fidel-app</h1>
+      <br />
+      <div>
+        <div class="input-area">
+          <h1 class="thin-text">{{ input }}</h1>
+        </div>
+        <div v-show="showTranslateOptions">
+          <div class="centre-align">
+              <w-button v-for="char of getLetters()" :key="char" class="box xs1" @click="append(char)">{{ char }}</w-button>
+            </div>
+        </div>
+        <div v-show="!showTranslateOptions" class="pad-options-area"></div>
+        <div class="delete-keys">
+          <w-button @click="clear" >Clear</w-button>
+          <w-button @click="backspace" >Backspace</w-button>
+          <w-button @click="newLine" >⏎</w-button>
+        </div>
+        <div class="centre-align">
+          <w-button v-for="number of numberKeys" :key="number" class="box xs1" >{{ number }}</w-button>
+        </div>
+        <div class="centre-align">
+          <w-button v-for="letter of firstRow" :key="letter" class="xs1 align-center" @click="setSelected(letter)" >{{ letter }}</w-button>
+          </div>
+        <div class="centre-align">
+          <w-button v-for="letter of secondRow" :key="letter" class="xs1 align-center centre-align" @click="setSelected(letter)">{{ letter }}</w-button>
+        </div>
+        <div class="centre-align">
+            <w-button v-for="letter of thirdRow" :key="letter" class="xs1 centre-align" @click="setSelected(letter)">{{ letter }}</w-button>
+        </div>
+        <div class="centre-align">
+          <w-button v-for="letter of fourthRow" :key="letter" class="xs1 centre-align" @click="setSelected(letter)">{{ letter }}</w-button>
+        </div>
+        <div class="centre-align">
+          <w-button @click="addSpace" class="space-bar"></w-button>
+        </div>
+      </div>
+    </main>
+  </w-app>
 </template>
 
 <style scoped>
-  .heading {
+
+.heading {
     margin-top: 5%;
   }
 .thin-text {
@@ -107,12 +111,12 @@ import { mapCharToLetters } from './utils';
 }
 button {
   border: 2px solid black;
-  border-radius: 12px;
+  /* border-radius: 12px; */
   padding: 10px;
-  margin: 5px;
+  margin: 2.5px;
 }
 .pad-options-area {
-  padding: 27.5px;
+  padding: 16.5px;
 }
 .input-area {
   white-space: pre-wrap;
