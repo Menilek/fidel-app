@@ -45,7 +45,13 @@ import { mapCharToLetters } from './utils';
 
   const clear = () => {
     input.value = "";
+    showOverlay.value = false;
   }
+
+  const showOverlay = ref(false);
+  const opacity = ref(0.8);
+  const persistent = ref(false);
+  const persistentNoAnimation = ref(false);
 
 </script>
 
@@ -65,15 +71,15 @@ import { mapCharToLetters } from './utils';
         </div>
         <div v-show="!showTranslateOptions" class="pad-options-area"></div>
         <div class="delete-keys">
-          <w-button @click="clear" >Clear</w-button>
+          <w-button @click="showOverlay = true">Clear</w-button>
           <w-button @click="backspace" >Backspace</w-button>
           <w-button @click="newLine" >⏎</w-button>
         </div>
         <div class="centre-align">
-          <w-button v-for="number of numberKeys" :key="number" class="box xs1" >{{ number }}</w-button>
+          <w-button v-for="number of numberKeys" :key="number" class="box xs1">{{ number }}</w-button>
         </div>
         <div class="centre-align">
-          <w-button v-for="letter of firstRow" :key="letter" class="xs1 align-center" @click="setSelected(letter)" >{{ letter }}</w-button>
+          <w-button v-for="letter of firstRow" :key="letter" class="xs1 align-center" @click="setSelected(letter)">{{ letter }}</w-button>
           </div>
         <div class="centre-align">
           <w-button v-for="letter of secondRow" :key="letter" class="xs1 align-center centre-align" @click="setSelected(letter)">{{ letter }}</w-button>
@@ -87,6 +93,18 @@ import { mapCharToLetters } from './utils';
         <div class="centre-align">
           <w-button @click="addSpace" class="space-bar"></w-button>
         </div>
+        <w-overlay
+        v-model="showOverlay"
+        :persistent="persistent"
+        :persistent-no-animation="persistentNoAnimation"
+        :opacity="opacity">
+          <w-button bg-color="primary" xl dark @click="clear">
+            Clear
+          </w-button>
+          <w-button bg-color="primary" xl dark @click="showOverlay = false">
+            Cancel
+          </w-button>
+        </w-overlay>
       </div>
     </main>
   </w-app>
@@ -147,4 +165,5 @@ button {
   display: inline-block;
   animation: cursor-blink 1.5s steps(2) infinite;
 }
+.w-overlay {backdrop-filter: blur(10px);}
 </style>
