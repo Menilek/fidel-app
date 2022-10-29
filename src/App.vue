@@ -63,6 +63,10 @@ import { mapCharToLetters, mapNumber } from './utils';
   const persistent = ref(false);
   const persistentNoAnimation = ref(false);
 
+  const copyText = () => {
+    navigator.clipboard.writeText(input.value);
+  }
+
 </script>
 
 <template>
@@ -81,6 +85,7 @@ import { mapCharToLetters, mapNumber } from './utils';
         </div>
         <div v-show="!showTranslateOptions" class="pad-options-area"></div>
         <div class="delete-keys">
+          <w-button @click="copyText">Copy</w-button>
           <w-button @click="showOverlay = true">Clear</w-button>
           <w-button @click="backspace" >Backspace</w-button>
           <w-button @click="newLine" >⏎</w-button>
